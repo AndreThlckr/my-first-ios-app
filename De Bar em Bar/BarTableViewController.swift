@@ -36,6 +36,31 @@ class BarTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func sort(_ sender: UIBarButtonItem) {
+        
+        var isSorted = true
+        
+        for i in 0 ..< (bares.count - 1) {
+            if bares[i].rating < bares[i+1].rating {
+                isSorted = false
+                break
+            }
+        }
+        
+        if(isSorted) {
+            print("Array is sorted!")
+            bares.sort(by:{ $0.rating < $1.rating })
+            sender.title = "Sort ☝️"
+        } else {
+            print("Array isn't sorted!")
+            bares.sort(by:{ $0.rating > $1.rating })
+            sender.title = "Sort 👇"
+        }
+        
+        tableView.reloadData()
+    }
+    
+    
     //MARK: Private Methods
     
     private func loadSampleBares(){
@@ -160,7 +185,7 @@ class BarTableViewController: UITableViewController {
             }
             
             guard let selectedBarCell = sender as? BarTableViewCell else {
-                fatalError("Unexpected sender: \(sender)")
+                fatalError("Unexpected sender: \(sender!)")
             }
             
             guard let indexPath = tableView.indexPath(for: selectedBarCell) else {
@@ -171,9 +196,8 @@ class BarTableViewController: UITableViewController {
             
             barDetailViewController.bar = selectedBar
         default:
-            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+            fatalError("Unexpected Segue Identifier: \(segue.identifier!)")
         }
     }
     
-
 }

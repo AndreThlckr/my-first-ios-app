@@ -31,6 +31,12 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         navigationItem.title = barNameTextField.text ?? "Novo bar"
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
     //MARK: Methods
     
     override func viewDidLoad() {
@@ -63,6 +69,7 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("Deu errado, mermão")
+        dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

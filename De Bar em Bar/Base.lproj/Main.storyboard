@@ -32,13 +32,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXr-rZ-4ax">
-                                            <rect key="frame" x="98" y="8" width="230" height="28"/>
+                                            <rect key="frame" x="98" y="8" width="269" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-ES-roj" customClass="RatingBar" customModule="De_Bar_em_Bar" customModuleProvider="target">
-                                            <rect key="frame" x="80" y="40" width="251" height="43"/>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-ES-roj" customClass="RatingBar" customModule="De_Bar_em_Bar" customModuleProvider="target">
+                                            <rect key="frame" x="107" y="36" width="237" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="VIc-ES-roj" secondAttribute="height" multiplier="252:43" id="0j0-Fv-DQS"/>
                                             </constraints>
@@ -71,16 +71,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Seus bares" id="XNu-Jz-exI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XWB-RR-Oil">
-                            <connections>
-                                <segue destination="GOF-kr-bFN" kind="presentation" identifier="AddItem" id="Pgt-un-seH"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="XWB-RR-Oil">
+                                <connections>
+                                    <segue destination="GOF-kr-bFN" kind="presentation" identifier="AddItem" id="Pgt-un-seH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Sort" id="Omv-E4-ZNE">
+                                <connections>
+                                    <action selector="sort:" destination="IF6-Xg-hJj" id="VEB-M8-EOI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qx5-X7-fJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155.07246376811597" y="125.89285714285714"/>
+            <point key="canvasLocation" x="154.40000000000001" y="125.4872563718141"/>
         </scene>
         <!--Novo bar-->
         <scene sceneID="Naf-Pc-UeF">
