@@ -48,11 +48,9 @@ class BarTableViewController: UITableViewController {
         }
         
         if(isSorted) {
-            print("Array is sorted!")
             bares.sort(by:{ $0.rating < $1.rating })
             sender.title = "Sort ☝️"
         } else {
-            print("Array isn't sorted!")
             bares.sort(by:{ $0.rating > $1.rating })
             sender.title = "Sort 👇"
         }
