@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import MapKit
 
 class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -111,7 +112,7 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         let photo = barImageView.image
         let rating = barRatingBar.rating
         
-        bar = Bar(name: name, address: address, phone: phone, photo: photo, rating: rating, longitude: 0, latitude: 0)
+        bar = Bar(name: name, address: address, phone: phone, photo: photo, rating: rating, coordinate: CLLocationCoordinate2D(latitude: -26.9168374, longitude: -49.0712756))
     }
     
     //MARK: Private Methods

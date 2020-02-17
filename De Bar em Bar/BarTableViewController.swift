@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import MapKit
 
 class BarTableViewController: UITableViewController {
     
@@ -66,15 +67,15 @@ class BarTableViewController: UITableViewController {
         let photo2 = UIImage(named: "bar2")
         let photo3 = UIImage(named: "bar3")
         
-        guard let bar1 = Bar(name: "Barzinho da esquina", address: "Blumenau", phone: "3382 9038", photo: photo1, rating: 3, longitude: 0, latitude: 0) else {
+        guard let bar1 = Bar(name: "Barzinho da esquina", address: "Blumenau", phone: "3382 9038", photo: photo1, rating: 3, coordinate: CLLocationCoordinate2D(latitude: -26.9168374, longitude: -49.0712756)) else {
             fatalError("Unable to instantiate bar1")
         }
         
-        guard let bar2 = Bar(name: "Bar top", address: "Timbó", phone: "3382 9038", photo: photo2, rating: 4, longitude: 0, latitude: 0) else {
+        guard let bar2 = Bar(name: "Bar top", address: "Timbó", phone: "3382 9038", photo: photo2, rating: 4, coordinate: CLLocationCoordinate2D(latitude: -26.917876, longitude: -49.0709269)) else {
             fatalError("Unable to instantiate bar2")
         }
         
-        guard let bar3 = Bar(name: "TÁ CHOVENDO HAMBURGUER", address: "Londres", phone: "3382 9038", photo: photo3, rating: 1, longitude: 0, latitude: 0) else {
+        guard let bar3 = Bar(name: "TÁ CHOVENDO HAMBURGUER", address: "Londres", phone: "3382 9038", photo: photo3, rating: 1, coordinate: CLLocationCoordinate2D(latitude: -26.9164362, longitude: -49.0718351)) else {
             fatalError("Unable to instantiate bar3")
         }
         
