@@ -17,6 +17,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var bares = [Bar]()
+    var barRequestingCoordinates: Bar?
+    
     let regionRadius: CLLocationDistance = 1000
     
     //MARK: Initializer

@@ -21,6 +21,10 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     @IBOutlet weak var barRatingBar: RatingBar!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var latitudeTextField: UITextField!
+    @IBOutlet weak var longitudeTextField: UITextField!
+    
     private var imagePicker: UIImagePickerController = UIImagePickerController()
     
     var bar: Bar?
@@ -54,6 +58,8 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
             barPhoneTextField.text = bar.phone
             barImageView.image = bar.photo
             barRatingBar.rating = bar.rating
+            latitudeTextField.text = String(bar.coordinate.latitude)
+            longitudeTextField.text = String(bar.coordinate.longitude)
         }
         
         updateSaveButtonState()
@@ -101,18 +107,39 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("O saveButton não foi pressionado; cancelando...", log: OSLog.default, type: .debug)
-            return
+        let identifier = segue.identifier ?? ""
+        
+        if(identifier == "SelectLocation") {
+            os_log("Selecting location.", log:OSLog.default, type: .debug)
+            
+            guard let mapViewController = segue.destination as? MapViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            mapViewController.barRequestingCoordinates = bar
+            
+            
+        } else {
+            
+            guard let button = sender as? UIBarButtonItem, button === saveButton else {
+                os_log("O saveButton não foi pressionado; cancelando...", log: OSLog.default, type: .debug)
+                return
+            }
+            
+            let name = barNameTextField.text ?? ""
+            let address = barAddressTextField.text ?? ""
+            let phone = barPhoneTextField.text ?? ""
+            let photo = barImageView.image
+            let rating = barRatingBar.rating
+            let stringLatitude = latitudeTextField.text ?? "0"
+            let stringLongitude = longitudeTextField.text ?? "0"
+            
+            let latitude = Double(stringLatitude) ?? 0
+            let longitude = Double(stringLongitude) ?? 0
+            
+            bar = Bar(name: name, address: address, phone: phone, photo: photo, rating: rating, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         }
         
-        let name = barNameTextField.text ?? ""
-        let address = barAddressTextField.text ?? ""
-        let phone = barPhoneTextField.text ?? ""
-        let photo = barImageView.image
-        let rating = barRatingBar.rating
-        
-        bar = Bar(name: name, address: address, phone: phone, photo: photo, rating: rating, coordinate: CLLocationCoordinate2D(latitude: -26.9168374, longitude: -49.0712756))
     }
     
     //MARK: Private Methods
