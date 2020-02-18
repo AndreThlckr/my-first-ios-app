@@ -1,38 +1,19 @@
 //
-//  MapViewController.swift
+//  BarDataManager.swift
 //  De Bar em Bar
 //
-//  Created by André on 17/02/20.
+//  Created by Jonathan on 17/02/20.
 //  Copyright © 2020 hbsis. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import os.log
 import MapKit
 
-class MapViewController: UIViewController {
+class BarDataManager {
     
-    @IBOutlet weak var mapView: MKMapView!
-    
-    let regionRadius: CLLocationDistance = 1000
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // set initial location in Proway
-        let initialLocation = CLLocation(latitude: -26.9172369, longitude: -49.0707435)
-        
-        centerMapOnLocation(location: initialLocation)
-        
-        loadSampleBares()
-    }
-    
-    
-    private func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    private func loadSampleBares(){
+    static func loadSampleBares() -> [Bar] {
         let photo1 = UIImage(named: "bar1")
         let photo2 = UIImage(named: "bar2")
         let photo3 = UIImage(named: "bar3")
@@ -49,9 +30,20 @@ class MapViewController: UIViewController {
             fatalError("Unable to instantiate bar3")
         }
         
-        mapView.addAnnotation(bar1)
-        mapView.addAnnotation(bar2)
-        mapView.addAnnotation(bar3)
+        return [bar1, bar2, bar3]
     }
     
+    static func saveBares(bares: [Bar]){
+        let isSucessfulSave = NSKeyedArchiver.archiveRootObject(bares, toFile: Bar.ArchiveURL.path)
+        
+        if isSucessfulSave {
+            os_log("Bares salvos com sucesso.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Tentativa de salvar bares falhou...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    static func loadBares() -> [Bar]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Bar.ArchiveURL.path) as? [Bar]
+    }
 }

@@ -21,6 +21,13 @@ class Bar: NSObject, NSCoding, MKAnnotation {
     var rating: Int
     var coordinate: CLLocationCoordinate2D
     
+    var title: String? {
+        return name
+    }
+    var subtitle: String? {
+        return address
+    }
+    
     //MARK: Archiving Paths
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!

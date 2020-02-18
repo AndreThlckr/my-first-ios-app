@@ -12,6 +12,7 @@
 		AB9EA45C23E9AE470035FE99 /* BarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EA45B23E9AE470035FE99 /* BarTableViewController.swift */; };
 		AB9EA45E23EAF0A90035FE99 /* BarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EA45D23EAF0A90035FE99 /* BarViewController.swift */; };
 		AB9EA46023FAB02C0035FE99 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EA45F23FAB02C0035FE99 /* MapViewController.swift */; };
+		AB9EA46523FACA4E0035FE99 /* BarDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EA46423FACA4E0035FE99 /* BarDataManager.swift */; };
 		AB9F786A23E9A4B500DEB473 /* BarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9F786923E9A4B500DEB473 /* BarTableViewCell.swift */; };
 		ABBDF57A23E1A18D00904847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBDF57923E1A18D00904847 /* AppDelegate.swift */; };
 		ABBDF57F23E1A18D00904847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBDF57D23E1A18D00904847 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		AB9EA45B23E9AE470035FE99 /* BarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarTableViewController.swift; sourceTree = "<group>"; };
 		AB9EA45D23EAF0A90035FE99 /* BarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarViewController.swift; sourceTree = "<group>"; };
 		AB9EA45F23FAB02C0035FE99 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AB9EA46423FACA4E0035FE99 /* BarDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarDataManager.swift; sourceTree = "<group>"; };
 		AB9F786923E9A4B500DEB473 /* BarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarTableViewCell.swift; sourceTree = "<group>"; };
 		ABBDF57623E1A18D00904847 /* De Bar em Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "De Bar em Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBDF57923E1A18D00904847 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB9EA46123FAC55A0035FE99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB549ABA23E845A1006B39AE /* Bar.swift */,
+				AB9EA46423FACA4E0035FE99 /* BarDataManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB9EA46223FAC56A0035FE99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB549AB823E44AFE006B39AE /* RatingBar.swift */,
+				AB9F786923E9A4B500DEB473 /* BarTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB9EA46323FAC5700035FE99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AB9EA45F23FAB02C0035FE99 /* MapViewController.swift */,
+				AB9EA45B23E9AE470035FE99 /* BarTableViewController.swift */,
+				AB9EA45D23EAF0A90035FE99 /* BarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		ABBDF56D23E1A18D00904847 = {
 			isa = PBXGroup;
 			children = (
@@ -87,17 +117,14 @@
 		ABBDF57823E1A18D00904847 /* De Bar em Bar */ = {
 			isa = PBXGroup;
 			children = (
+				AB9EA46323FAC5700035FE99 /* Controller */,
+				AB9EA46223FAC56A0035FE99 /* View */,
+				AB9EA46123FAC55A0035FE99 /* Model */,
 				ABBDF57923E1A18D00904847 /* AppDelegate.swift */,
-				AB9EA45D23EAF0A90035FE99 /* BarViewController.swift */,
-				AB549ABA23E845A1006B39AE /* Bar.swift */,
-				AB549AB823E44AFE006B39AE /* RatingBar.swift */,
-				AB9F786923E9A4B500DEB473 /* BarTableViewCell.swift */,
-				AB9EA45B23E9AE470035FE99 /* BarTableViewController.swift */,
 				ABBDF57D23E1A18D00904847 /* Main.storyboard */,
 				ABBDF58223E1A18F00904847 /* LaunchScreen.storyboard */,
 				ABBDF58023E1A18F00904847 /* Assets.xcassets */,
 				ABBDF58523E1A18F00904847 /* Info.plist */,
-				AB9EA45F23FAB02C0035FE99 /* MapViewController.swift */,
 			);
 			path = "De Bar em Bar";
 			sourceTree = "<group>";
@@ -213,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB9F786A23E9A4B500DEB473 /* BarTableViewCell.swift in Sources */,
+				AB9EA46523FACA4E0035FE99 /* BarDataManager.swift in Sources */,
 				AB9EA45C23E9AE470035FE99 /* BarTableViewController.swift in Sources */,
 				AB549AB923E44AFE006B39AE /* RatingBar.swift in Sources */,
 				AB549ABB23E845A1006B39AE /* Bar.swift in Sources */,
