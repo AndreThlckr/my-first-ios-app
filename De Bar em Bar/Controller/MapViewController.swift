@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import os.log
 
 class MapViewController: UIViewController {
     
@@ -25,19 +26,59 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // set initial location in Proway
+        
         let initialLocation = CLLocation(latitude: -26.9172369, longitude: -49.0707435)
         
         centerMapOnLocation(location: initialLocation)
         
+        let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
+        mapView.addGestureRecognizer(longTapGesture)
+        
+        if barRequestingCoordinates != nil {
+            navigationItem.title = "Long press on location..."
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if let savedBares = BarDataManager.loadBares() {
+            if (bares != savedBares) {
+                bares.removeAll(keepingCapacity: false)
+                mapView.removeAnnotations(mapView.annotations)
+            }
             bares += savedBares
         } else {
             bares += BarDataManager.loadSampleBares()
         }
         
         addAnnotations()
+    }
+    
+    //MARK: Actions
+    
+    @objc func longTap(sender: UIGestureRecognizer){
+        print("long tap")
+        if sender.state != .began {
+            return
+        }
+        guard barRequestingCoordinates != nil else {
+            print("Deu merda")
+            os_log("Long tap without requesting location", log:OSLog.default, type: .debug)
+            return
+        }
+        
+        print("Não deu merda")
+        
+        let locationInView = sender.location(in: mapView)
+        
+        let locationOnMap = mapView.convert(locationInView, toCoordinateFrom: mapView)
+        
+        print("\(locationOnMap.latitude)  e  \(locationOnMap.longitude)")
+        
+        barRequestingCoordinates?.coordinate = locationOnMap
+        
+        performSegue(withIdentifier: "UnwindToBarViewController", sender: self)
+        
+        print("fim")
     }
     
     //MARK: Private Methods

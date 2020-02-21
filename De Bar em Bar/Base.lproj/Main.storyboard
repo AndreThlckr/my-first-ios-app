@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="szy-fS-Gnq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ueT-BZ-XMX">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,13 +13,13 @@
         <scene sceneID="Mo4-i4-9or">
             <objects>
                 <tableViewController id="IF6-Xg-hJj" customClass="BarTableViewController" customModule="De_Bar_em_Bar" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gR8-Nu-0LA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="gR8-Nu-0LA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarTableViewCell" rowHeight="90" id="wGx-zI-Cuw" customClass="BarTableViewCell" customModule="De_Bar_em_Bar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wGx-zI-Cuw" id="FCQ-Tg-RiA">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
@@ -32,7 +32,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXr-rZ-4ax">
-                                            <rect key="frame" x="98" y="8" width="0.0" height="28"/>
+                                            <rect key="frame" x="97.5" y="8" width="308.5" height="24.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="XWB-RR-Oil">
                                 <connections>
-                                    <segue destination="GOF-kr-bFN" kind="presentation" identifier="AddItem" id="Pgt-un-seH"/>
+                                    <action selector="addItem:" destination="IF6-Xg-hJj" id="Q7g-gh-m11"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Sort" id="Omv-E4-ZNE">
@@ -87,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qx5-X7-fJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154.40000000000001" y="125.4872563718141"/>
+            <point key="canvasLocation" x="1063.768115942029" y="125.22321428571428"/>
         </scene>
         <!--Novo bar-->
         <scene sceneID="Naf-Pc-UeF">
@@ -232,9 +232,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="940.57971014492762" y="124.55357142857142"/>
+            <point key="canvasLocation" x="1064" y="863"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Mapa-->
         <scene sceneID="ppN-VT-R4m">
             <objects>
                 <viewController id="Nld-fq-T5Q" customClass="MapViewController" customModule="De_Bar_em_Bar" customModuleProvider="target" sceneMemberID="viewController">
@@ -243,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jy5-6B-ili">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,18 +255,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="96e-Pw-5kq"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Mapa" id="vfV-9i-vOb"/>
                     <connections>
                         <outlet property="mapView" destination="Jy5-6B-ili" id="gLr-V0-qHu"/>
+                        <segue destination="AK1-nn-YNM" kind="unwind" identifier="UnwindToBarViewController" unwindAction="unwindToBarViewControllerWithSender:" id="N32-dq-7RG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5Q-1I-Cin" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AK1-nn-YNM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="126"/>
+            <point key="canvasLocation" x="-674" y="1596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H9j-qk-jab">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="szy-fS-Gnq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="34d-xi-F1x"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O8D-06-QjS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -279,13 +283,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aee-4l-DAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673" y="126"/>
+            <point key="canvasLocation" x="236.23188405797103" y="125.89285714285714"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Adicionar-->
         <scene sceneID="2AZ-4P-w0G">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GOF-kr-bFN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Adicionar" id="xuM-vd-khC"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1SR-P8-EUi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -297,7 +303,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxC-tD-4Ay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="156" y="905"/>
+            <point key="canvasLocation" x="236" y="863"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="OO0-4Q-dwi">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ueT-BZ-XMX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CPw-nV-vbC">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="szy-fS-Gnq" kind="relationship" relationship="viewControllers" id="gdq-eb-Rc6"/>
+                        <segue destination="GOF-kr-bFN" kind="relationship" relationship="viewControllers" id="KbB-0Y-3vA"/>
+                        <segue destination="Nld-fq-T5Q" kind="relationship" relationship="viewControllers" id="65q-Rr-klg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfR-9J-CXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-673.91304347826087" y="125.89285714285714"/>
         </scene>
     </scenes>
     <resources>
@@ -306,6 +331,7 @@
         <image name="selectImagePlaceholder" width="750" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="65q-Rr-klg"/>
         <segue reference="FUY-X9-w67"/>
     </inferredMetricsTieBreakers>
 </document>

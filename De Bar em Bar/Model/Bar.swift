@@ -42,7 +42,8 @@ class Bar: NSObject, NSCoding, MKAnnotation {
         static let phone = "phone"
         static let photo = "photo"
         static let rating = "rating"
-        static let coordinate = "coordinate"
+        static let coordinateLatitude = "coordinateLatitude"
+        static let coordinateLongitude = "coordinateLongitude"
     }
     
     
@@ -77,7 +78,8 @@ class Bar: NSObject, NSCoding, MKAnnotation {
         aCoder.encode(phone, forKey: PropertyKey.phone)
         aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(rating, forKey: PropertyKey.rating)
-        aCoder.encode(coordinate, forKey: PropertyKey.coordinate)
+        aCoder.encode(coordinate.latitude, forKey: PropertyKey.coordinateLatitude)
+        aCoder.encode(coordinate.longitude, forKey: PropertyKey.coordinateLongitude)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -94,9 +96,13 @@ class Bar: NSObject, NSCoding, MKAnnotation {
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
-        let coordinate = aDecoder.decodeObject(forKey: PropertyKey.coordinate) as? CLLocationCoordinate2D
+        let coordinateLatitude = aDecoder.decodeDouble(forKey: PropertyKey.coordinateLatitude)
         
-        self.init(name: name, address: address!, phone: phone!, photo: photo, rating: rating, coordinate: coordinate!)
+        let coordinateLongitude = aDecoder.decodeDouble(forKey: PropertyKey.coordinateLongitude)
+        
+        let coordinate = CLLocationCoordinate2D(latitude: coordinateLatitude, longitude: coordinateLongitude)
+        
+        self.init(name: name, address: address!, phone: phone!, photo: photo, rating: rating, coordinate: coordinate)
     }
     
 }

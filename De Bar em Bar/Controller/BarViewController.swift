@@ -89,6 +89,15 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         self.dismiss(animated: true, completion: nil)
     }
     
+    //MARK: Actions
+    
+    @IBAction func unwindToBarViewController(sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? MapViewController, let bar = sourceViewController.barRequestingCoordinates {
+                latitudeTextField.text = String(bar.coordinate.latitude)
+                longitudeTextField.text = String(bar.coordinate.longitude)
+        }
+    }
+    
     //MARK: Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -116,9 +125,7 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            mapViewController.barRequestingCoordinates = bar
-            
-            
+            mapViewController.barRequestingCoordinates = barFromFields()
         } else {
             
             guard let button = sender as? UIBarButtonItem, button === saveButton else {
@@ -126,23 +133,29 @@ class BarViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
                 return
             }
             
-            let name = barNameTextField.text ?? ""
-            let address = barAddressTextField.text ?? ""
-            let phone = barPhoneTextField.text ?? ""
-            let photo = barImageView.image
-            let rating = barRatingBar.rating
-            let stringLatitude = latitudeTextField.text ?? "0"
-            let stringLongitude = longitudeTextField.text ?? "0"
-            
-            let latitude = Double(stringLatitude) ?? 0
-            let longitude = Double(stringLongitude) ?? 0
-            
-            bar = Bar(name: name, address: address, phone: phone, photo: photo, rating: rating, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+            bar = barFromFields()
         }
         
     }
     
     //MARK: Private Methods
+    
+    private func barFromFields() -> Bar? {
+        let name = barNameTextField.text ?? ""
+        let address = barAddressTextField.text ?? ""
+        let phone = barPhoneTextField.text ?? ""
+        let photo = barImageView.image
+        let rating = barRatingBar.rating
+        let stringLatitude = latitudeTextField.text ?? "0"
+        let stringLongitude = longitudeTextField.text ?? "0"
+        
+        let latitude = Double(stringLatitude) ?? 0
+        let longitude = Double(stringLongitude) ?? 0
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let bar = Bar(name: name, address: address, phone: phone, photo: photo, rating: rating, coordinate: coordinate)
+        return bar
+    }
     
     private func updateSaveButtonState() {
         //Disable the save button if the text field is empty

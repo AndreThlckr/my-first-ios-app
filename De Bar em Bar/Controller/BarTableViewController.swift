@@ -10,7 +10,7 @@ import UIKit
 import os.log
 import MapKit
 
-class BarTableViewController: UITableViewController {
+class BarTableViewController: UITableViewController, ATabController {
     
     //MARK: Properties
     
@@ -117,14 +117,18 @@ class BarTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
-
+    
+    
+    @IBAction func addItem(_ sender: UIBarButtonItem) {
+        tabDelegate?.switchTab(to: .second)
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
         switch (segue.identifier ?? "") {
-        case "AddItem":
-            os_log("Adding a new meal.", log:OSLog.default, type: .debug)
+            
         case "ShowDetail":
             guard let barDetailViewController = segue.destination as? BarViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
