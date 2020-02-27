@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		AB549AB923E44AFE006B39AE /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB549AB823E44AFE006B39AE /* RatingBar.swift */; };
 		AB549ABB23E845A1006B39AE /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB549ABA23E845A1006B39AE /* Bar.swift */; };
-		AB74B7A924001FE5002E489B /* ATabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74B7A824001FE5002E489B /* ATabController.swift */; };
-		AB74B7AB24002179002E489B /* AppTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74B7AA24002179002E489B /* AppTabController.swift */; };
 		AB9EA45C23E9AE470035FE99 /* BarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EA45B23E9AE470035FE99 /* BarTableViewController.swift */; };
 		AB9EA45E23EAF0A90035FE99 /* BarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EA45D23EAF0A90035FE99 /* BarViewController.swift */; };
 		AB9EA46023FAB02C0035FE99 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9EA45F23FAB02C0035FE99 /* MapViewController.swift */; };
@@ -36,8 +34,6 @@
 /* Begin PBXFileReference section */
 		AB549AB823E44AFE006B39AE /* RatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
 		AB549ABA23E845A1006B39AE /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
-		AB74B7A824001FE5002E489B /* ATabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATabController.swift; sourceTree = "<group>"; };
-		AB74B7AA24002179002E489B /* AppTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabController.swift; sourceTree = "<group>"; };
 		AB9EA45B23E9AE470035FE99 /* BarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarTableViewController.swift; sourceTree = "<group>"; };
 		AB9EA45D23EAF0A90035FE99 /* BarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarViewController.swift; sourceTree = "<group>"; };
 		AB9EA45F23FAB02C0035FE99 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -96,8 +92,6 @@
 				AB9EA45F23FAB02C0035FE99 /* MapViewController.swift */,
 				AB9EA45B23E9AE470035FE99 /* BarTableViewController.swift */,
 				AB9EA45D23EAF0A90035FE99 /* BarViewController.swift */,
-				AB74B7A824001FE5002E489B /* ATabController.swift */,
-				AB74B7AA24002179002E489B /* AppTabController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,9 +242,7 @@
 				AB9F786A23E9A4B500DEB473 /* BarTableViewCell.swift in Sources */,
 				AB9EA46523FACA4E0035FE99 /* BarDataManager.swift in Sources */,
 				AB9EA45C23E9AE470035FE99 /* BarTableViewController.swift in Sources */,
-				AB74B7AB24002179002E489B /* AppTabController.swift in Sources */,
 				AB549AB923E44AFE006B39AE /* RatingBar.swift in Sources */,
-				AB74B7A924001FE5002E489B /* ATabController.swift in Sources */,
 				AB549ABB23E845A1006B39AE /* Bar.swift in Sources */,
 				ABBDF57A23E1A18D00904847 /* AppDelegate.swift in Sources */,
 				AB9EA45E23EAF0A90035FE99 /* BarViewController.swift in Sources */,

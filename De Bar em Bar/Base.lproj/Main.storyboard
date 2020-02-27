@@ -74,7 +74,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="XWB-RR-Oil">
                                 <connections>
-                                    <action selector="addItem:" destination="IF6-Xg-hJj" id="Q7g-gh-m11"/>
+                                    <segue destination="GOF-kr-bFN" kind="show" identifier="AddItem" id="ivL-Y2-pBH"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Sort" id="Omv-E4-ZNE">
@@ -264,7 +264,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5Q-1I-Cin" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AK1-nn-YNM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-674" y="1596"/>
+            <point key="canvasLocation" x="-675" y="1590"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H9j-qk-jab">
@@ -311,6 +311,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ueT-BZ-XMX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CPw-nV-vbC">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -322,7 +323,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfR-9J-CXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673.91304347826087" y="125.89285714285714"/>
+            <point key="canvasLocation" x="-675" y="126"/>
         </scene>
     </scenes>
     <resources>
@@ -331,6 +332,7 @@
         <image name="selectImagePlaceholder" width="750" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ivL-Y2-pBH"/>
         <segue reference="65q-Rr-klg"/>
         <segue reference="FUY-X9-w67"/>
     </inferredMetricsTieBreakers>
